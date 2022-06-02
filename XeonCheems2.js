@@ -1771,7 +1771,7 @@ break
                                     id: 'owner'
                                 }
                             }]
-                      let txt = `「 Al Soltan Bot Broadcast 」\n\n${text}`
+                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(i, txt, XeonBotInc.user.name, global.thumb, btn)
                     }
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
@@ -1805,7 +1805,7 @@ break
                                     id: 'owner'
                                 }
                             }]
-                      let txt = `「 Al Soltan Bot Broadcast 」\n\n${text}`
+                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(yoi, txt, XeonBotInc.user.name, global.thumb, btn)
 		}
 		reply('Broadcast Success')
@@ -2357,7 +2357,7 @@ case 'webtonsearch': case 'webtoon':
 	    }
             break
 	    case 'nomerhoki': case 'nomorhoki': {
-                if (!Number(text)) return reply(`Example : ${prefix + command} 201288455338`)
+                if (!Number(text)) return reply(`Example : ${prefix + command} 916909137213`)
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return reply(anu.message)
                 XeonBotInc.sendText(m.chat, `🐶 *Phone Number :* ${anu.message.nomer_hp}\n🐶 *Shuzi Angka Figures :* ${anu.message.angka_shuzi}\n🐶 *Positive Energy :*\n- Riches : ${anu.message.energi_positif.kekayaan}\n- Health : ${anu.message.energi_positif.kesehatan}\n- Love : ${anu.message.energi_positif.cinta}\n- Stability : ${anu.message.energi_positif.kestabilan}\n- Percentage : ${anu.message.energi_positif.persentase}\n🐶 *Negative Energy :*\n- Dispute : ${anu.message.energi_negatif.perselisihan}\n- Lost : ${anu.message.energi_negatif.kehilangan}\n- Catastrophe : ${anu.message.energi_negatif.malapetaka}\n- Destruction : ${anu.message.energi_negatif.kehancuran}\n- Percentage : ${anu.message.energi_negatif.persentase}`, m)
@@ -3272,7 +3272,7 @@ reply("Success Changing Menu To "+q)
 break
                     case 'bug': case 'report': {
                     	if(!text) return reply(`Enter The Bug\n\nExample: ${command} Menu Error`)
-                    	XeonBotInc.sendMessage(`201288455338@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
+                    	XeonBotInc.sendMessage(`916909137213@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
                     }
@@ -3518,11 +3518,11 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             }
             break
     case 'donasi': case 'donate': case 'sewabot': case 'sewa': case 'buypremium': case 'donate': {
-                XeonBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/6ba2aed566865a068e91f.jpg' }, caption: `*Hi Bro ${m.pushName}*\n\nDonate Me : \n\n🐶 Fampay : https://telegra.ph/file/6ba2aed566865a068e91f.jpg\n🐶 Paytm : https://telegra.ph/file/577bd4f28d90ca2c7f369.jpg\n\nIf You Want To Donate, Talk With The Owner First\nwa.me/201288455338 (Click To Contact)` }, { quoted: m })
+                XeonBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/6ba2aed566865a068e91f.jpg' }, caption: `*Hi Bro ${m.pushName}*\n\nDonate Me : \n\n🐶 Fampay : https://telegra.ph/file/6ba2aed566865a068e91f.jpg\n🐶 Paytm : https://telegra.ph/file/577bd4f28d90ca2c7f369.jpg\n\nIf You Want To Donate, Talk With The Owner First\nwa.me/916909137213 (Click To Contact)` }, { quoted: m })
             }
             break
             case 'sc': case 'script': {
-                reply(`Instagram : https://www.instagram.com/1y._.o2\n Dont Forget To Give Star\n\nYouTube : ${myweb}\nDont Forget To Watch Tutorial`)
+                reply(`GitHub : https://github.com/DGXeon/CheemsBot-MD2\n Dont Forget To Give Star\n\nYouTube : ${myweb}\nDont Forget To Watch Tutorial`)
             }
             break
 case 'allmenu': {
