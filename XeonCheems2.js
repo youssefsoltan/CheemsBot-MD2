@@ -1771,7 +1771,7 @@ break
                                     id: 'owner'
                                 }
                             }]
-                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
+                      let txt = `「 Al Soltan Bot Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(i, txt, XeonBotInc.user.name, global.thumb, btn)
                     }
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
@@ -1805,7 +1805,7 @@ break
                                     id: 'owner'
                                 }
                             }]
-                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
+                      let txt = `「 Al Soltan Bot Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(yoi, txt, XeonBotInc.user.name, global.thumb, btn)
 		}
 		reply('Broadcast Success')
@@ -3528,7 +3528,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 case 'allmenu': {
   	anu = `
 ┏━「 *${botname}* 」━━⭓ 
-┃╔═══════✪「 MAIN 」
+┃╔═══════✪「 البوت عن ابلاغ اوامر 」
 ┃╠ ${prefix}alive
 ┃╠ ${prefix}script
 ┃╠ ${prefix}speedtest
@@ -3542,7 +3542,7 @@ case 'allmenu': {
 ┃╠ ${prefix}listgc
 ┃╠ ${prefix}donate
 ┃╠ ${prefix}report [bug]
-┃╠═══════✪「 OWNER 」	
+┃╠═══════✪「 البوت صاحب اوامر 」	
 ┃╠ ${prefix}chat [option]
 ┃╠ ${prefix}join [link]
 ┃╠ ${prefix}leave
@@ -3583,7 +3583,7 @@ case 'allmenu': {
 ┃╠${prefix}leaderboard
 ┃╠${prefix}buy [option]
 ┃╠${prefix}sell [option]
-┃╠═════✪「 DOWNLOADER 」	
+┃╠═════✪「 التحميل اوامر 」	
 ┃╠${prefix}ytmp3 [url|quality]
 ┃╠${prefix}ytmp4 [url|quality]
 ┃╠${prefix}getmusic [yt link]
@@ -3591,7 +3591,7 @@ case 'allmenu': {
 ┃╠${prefix}umma [query]
 ┃╠${prefix}joox [query]
 ┃╠${prefix}soundcloud [url]
-┃╠═══════✪「 SEARCHER 」	
+┃╠═══════✪「 السيرش اوامر 」	
 ┃╠${prefix}play [query]
 ┃╠${prefix}song [query]
 ┃╠${prefix}yts [query]
@@ -3603,11 +3603,11 @@ case 'allmenu': {
 ┃╠${prefix}ytsearch [query]
 ┃╠${prefix}ringtone [query]
 ┃╠${prefix}webtoon [query]
-┃╠═══════✪「 RANDOM 」
+┃╠═══════✪「 عشوائيه اوامر 」
 ┃╠${prefix}coffee
 ┃╠${prefix}animequote (indo)
 ┃╠${prefix}couplepp
-┃╠════✪「 RANDOM ANIME 」
+┃╠════✪「 انمي اوامر 」
 ┃╠${prefix}loli
 ┃╠${prefix}bully
 ┃╠${prefix}cuddle
@@ -3681,7 +3681,7 @@ case 'allmenu': {
 ┃╠ ${prefix}guess [option]
 ┃╠ ${prefix}math [mode]
 ┃╠ ${prefix}suitpvp [tag]
-┃╠═══════✪「 CONVERTER 」
+┃╠═══════✪「 الملصقات اوامر 」
 ┃╠ ${prefix}toimage [reply stick]
 ┃╠ ${prefix}sticker [reply img|gif]
 ┃╠ ${prefix}emojimix [moji+moji]
