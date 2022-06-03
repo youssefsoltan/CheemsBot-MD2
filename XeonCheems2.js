@@ -1489,14 +1489,14 @@ let teks = `╚»˙·٠•●♥ Tag All ♥●•٠·˙«╝
 
 *السؤال:* ${vote[m.chat][0]}
 
-┌〔 UPVOTE 〕
+┌〔 نعم 〕
 │ 
 ┃╠ المجموع: ${vote[m.chat][1].length}
 │
 │ 
 └────
 
-┌〔 DEVOTE 〕
+┌〔 لا 〕
 │ 
 ┃╠ المجموع: ${vote[m.chat][2].length}
 │
