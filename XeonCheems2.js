@@ -1487,26 +1487,26 @@ let teks = `╚»˙·٠•●♥ Tag All ♥●•٠·˙«╝
             devote = vote[m.chat][2]
             teks_vote = `*「 VOTE 」*
 
-*Reason:* ${vote[m.chat][0]}
+*السؤال:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
 │ 
-┃╠ Total: ${vote[m.chat][1].length}
+┃╠ المجموع: ${vote[m.chat][1].length}
 │
 │ 
 └────
 
 ┌〔 DEVOTE 〕
 │ 
-┃╠ Total: ${vote[m.chat][2].length}
+┃╠ المجموع: ${vote[m.chat][2].length}
 │
 │ 
 └────
 
 *${prefix}delvote* - To Delete Vote Session`
 let buttonsVote = [
-  {buttonId: `${prefix}upvote`, buttonText: {displayText: 'Upvote'}, type: 1},
-  {buttonId: `${prefix}devote`, buttonText: {displayText: 'Devote'}, type: 1}
+  {buttonId: `${prefix}upvote`, buttonText: {displayText: 'نعم'}, type: 1},
+  {buttonId: `${prefix}devote`, buttonText: {displayText: 'لا'}, type: 1}
 ]
 
             let buttonMessageVote = {
