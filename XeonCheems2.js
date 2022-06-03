@@ -1485,7 +1485,7 @@ let teks = `╚»˙·٠•●♥ Tag All ♥●•٠·˙«╝
             await sleep(1000)
             upvote = vote[m.chat][1]
             devote = vote[m.chat][2]
-            teks_vote = `*「 VOTE 」*
+            teks_vote = `*「 التصويت 」*
 
 *السؤال:* ${vote[m.chat][0]}
 
@@ -1526,28 +1526,28 @@ let buttonsVote = [
             if (wasVote) replay(`You've Voted`)
             vote[m.chat][1].push(m.sender)
             menvote = vote[m.chat][1].concat(vote[m.chat][2])
-            teks_vote = `*「 VOTE 」*
+            teks_vote = `*「 التصويت 」*
 
-*Reason:* ${vote[m.chat][0]}
+*السؤال:* ${vote[m.chat][0]}
 
-┌〔 UPVOTE 〕
+┌〔 نعم 〕
 │ 
-┃╠ Total: ${vote[m.chat][1].length}
+┃╠ المجموع: ${vote[m.chat][1].length}
 ${vote[m.chat][1].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
-┌〔 DEVOTE 〕
+┌〔 لا 〕
 │ 
-┃╠ Total: ${vote[m.chat][2].length}
+┃╠ المجموع: ${vote[m.chat][2].length}
 ${vote[m.chat][2].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
 *${prefix}delvote* - To Delete Vote Session`
             let buttonsUpvote = [
-              {buttonId: `${prefix}upvote`, buttonText: {displayText: 'Upvote'}, type: 1},
-              {buttonId: `${prefix}devote`, buttonText: {displayText: 'Devote'}, type: 1}
+              {buttonId: `${prefix}upvote`, buttonText: {displayText: 'نعم'}, type: 1},
+              {buttonId: `${prefix}devote`, buttonText: {displayText: 'لا'}, type: 1}
             ]
 
             let buttonMessageUpvote = {
@@ -1568,28 +1568,28 @@ ${vote[m.chat][2].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')
             if (wasVote) return replay(`You've Voted`)
             vote[m.chat][2].push(m.sender)
             menvote = vote[m.chat][1].concat(vote[m.chat][2])
-            teks_vote = `*「 VOTE 」*
+            teks_vote = `*「 التصويت 」*
 
-*Reason:* ${vote[m.chat][0]}
+*السؤال:* ${vote[m.chat][0]}
 
-┌〔 UPVOTE 〕
+┌〔 نعم 〕
 │ 
-┃╠ Total: ${vote[m.chat][1].length}
+┃╠ المجموع: ${vote[m.chat][1].length}
 ${vote[m.chat][1].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
-┌〔 DEVOTE 〕
+┌〔 لا 〕
 │ 
-┃╠ Total: ${vote[m.chat][2].length}
+┃╠ المجموع: ${vote[m.chat][2].length}
 ${vote[m.chat][2].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
 *${prefix}delvote* - To Delete Vote Session`
             let buttonsDevote = [
-              {buttonId: `${prefix}upvote`, buttonText: {displayText: 'Upvote'}, type: 1},
-              {buttonId: `${prefix}devote`, buttonText: {displayText: 'Devote'}, type: 1}
+              {buttonId: `${prefix}upvote`, buttonText: {displayText: 'نعم'}, type: 1},
+              {buttonId: `${prefix}devote`, buttonText: {displayText: 'لا'}, type: 1}
             ]
 
             let buttonMessageDevote = {
@@ -1606,20 +1606,20 @@ ${vote[m.chat][2].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')
 case 'checkvote':
 if (!m.isGroup) return replay(`${mess.group}`)
 if (!(m.chat in vote)) return replay(`_*No Voting In This Group!*_\n\n*${prefix}vote* - To Start Voting`)
-teks_vote = `*「 VOTE 」*
+teks_vote = `*「 التصويت 」*
 
-*Reason:* ${vote[m.chat][0]}
+*السؤال:* ${vote[m.chat][0]}
 
-┌〔 UPVOTE 〕
+┌〔 نعم 〕
 │ 
-┃╠ Total: ${upvote.length}
+┃╠ المجموع: ${upvote.length}
 ${vote[m.chat][1].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
 
-┌〔 DEVOTE 〕
+┌〔 لا 〕
 │ 
-┃╠ Total: ${devote.length}
+┃╠ المجموع: ${devote.length}
 ${vote[m.chat][2].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 │ 
 └────
