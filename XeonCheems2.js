@@ -1449,7 +1449,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 if (!isAdmins) return replay(`${mess.admin}`)
 let teks = `╚»˙·٠•●‘ منشن جماعي ,●•٠·˙«╝ 
  
- ➲ *Message : ${q ? q : 'no message'}*\n\n`
+ ➲ *الرساله : ${q ? q : 'no message'}*\n\n`
                 for (let mem of participants) {
                 teks += `🌟 @${mem.id.split('@')[0]}\n`
                 }
@@ -2055,13 +2055,13 @@ break
         n = result
         images = n[Math.floor(Math.random() * n.length)].url
         let buttons = [
-                    {buttonId: `gimage ${text}`, buttonText: {displayText: '➡️➡️Next Image➡️➡️'}, type: 1}
+                    {buttonId: `gimage ${text}`, buttonText: {displayText: '➡️الصوره الثانيه➡️'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: images },
-                    caption: `*-------「 GIMAGE SEARCH 」-------*
-🤠 *Query* : ${text}
-🔗 *Media Url* : ${images}`,
+                    caption: `*-------「 بحث في جوجل 」-------*
+🤠 *اسم الصوره* : ${text}
+🔗 *رابط الصوره* : ${images}`,
                     footer: XeonBotInc.user.name,
                     buttons: buttons,
                     headerType: 4
