@@ -1298,10 +1298,10 @@ XeonBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${s
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `The Most *${command}* Here Is @${jodoh.split('@')[0]}`
+            let jawab = `سيتم تزويجك الان😂 *${command}* زوجتك هيا @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
             let buttons = [
-                        { buttonId: '👀', buttonText: { displayText: '👀😂' }, type: 1 }
+                        { buttonId: '👀', buttonText: { displayText: 'موافق😂' }, type: 1 }
                     ]
                     await XeonBotInc.sendButtonText(m.chat, buttons, jawab, XeonBotInc.user.name, m, {mentions: ments})
             }
@@ -2029,7 +2029,7 @@ break
                 let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
                 let no = 1
                 for (let i of search.all) {
-                    teks += `🌟 No : ${no++}\n🌟 Type : ${i.type}\n🌟 Video ID : ${i.videoId}\n🌟 Title : ${i.title}\n🌟 Views : ${i.views}\n🌟 Duration : ${i.timestamp}\n🌟 Uploaded On : ${i.ago}\n🌟 Author : ${i.author.name}\n🌟 Url : ${i.url}\n\n─────────────────\n\n`
+                    teks += `🌟 No : ${no++}\n🌟 Type : ${i.type}\n🌟 Video ID : ${i.videoId}\n🌟 اسم الفيديو : ${i.title}\n🌟 المشاهدات : ${i.views}\n🌟 Duration : ${i.timestamp}\n🌟 Uploaded On : ${i.ago}\n🌟 Author : ${i.author.name}\n🌟 الرابط : ${i.url}\n\n─────────────────\n\n`
                 }
                 XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
@@ -2038,11 +2038,11 @@ break
                 if (!text) return reply(`Example : ${prefix + command} cheems shiba inu`)
                 let google = require('google-it')
                 google({'query': text}).then(res => {
-                let teks = `Google Search Title : ${text}\n\n`
+                let teks = `بحث فيديوهات : ${text}\n\n`
                 for (let g of res) {
-                teks += `🌟 *Title* : ${g.title}\n`
-                teks += `🌟 *Description* : ${g.snippet}\n`
-                teks += `🌟 *Link* : ${g.link}\n\n────────────────────────\n\n`
+                teks += `🌟 *اسم الفيديو* : ${g.title}\n`
+                teks += `🌟 *الوصف* : ${g.snippet}\n`
+                teks += `🌟 *الرابط* : ${g.link}\n\n────────────────────────\n\n`
                 } 
                 reply(teks)
                 })
@@ -2294,7 +2294,7 @@ case 'webtonsearch': case 'webtoon':
                 ]
                 let buttonMessage = {
                     image: { url: result.image[0] },
-                    caption: `🌟 Title : ${result.title}\n🌟 Category : ${result.type}\n🌟 Detail : ${result.source}\n🌟 Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
+                    caption: `🌟 الاسم : ${result.title}\n🌟 Category : ${result.type}\n🌟 Detail : ${result.source}\n🌟 Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
                     footer: XeonBotInc.user.name,
                     buttons: buttons,
                     headerType: 4
@@ -2312,7 +2312,7 @@ case 'webtonsearch': case 'webtoon':
                 ]
                 let buttonMessage = {
                     image: { url: result.image },
-                    caption: `🌟 Title : ${result.title}\n🌟 Source : ${result.source}\n🌟 Media Url : ${result.image}`,
+                    caption: `🌟 الاسم : ${result.title}\n🌟 Source : ${result.source}\n🌟 الرابط : ${result.image}`,
                     footer: XeonBotInc.user.name,
                     buttons: buttons,
                     headerType: 4
