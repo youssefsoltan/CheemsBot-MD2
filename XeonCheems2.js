@@ -3525,7 +3525,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 reply(`GitHub : https://www.instagram.com/1y._.o2\n Dont Forget To Give Star\n\nYouTube : ${myweb}\nDont Forget To Watch Tutorial`)
             }
             break
-case 'الاوامر': {
+case 'الاوامر كامله': {
   	anu = `
 ┏━「 *${botname}* 」━━⭓ 
 ┃╔═══════✪「 اوامر خاصه عن البوت 」
