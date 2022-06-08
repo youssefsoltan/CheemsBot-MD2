@@ -1366,43 +1366,43 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(فقدنا شخص اخر'
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'ضافه': {
+	case 'add': {
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
-		let users = m.quoted ? m.quoted.sender : text.replace(تمت اضافه عضو جديد'
+		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'رفع مشرف': {
+	case 'promote': {
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(تمت رفعه مشرف'
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-	case 'ازاله مشرف': {
+	case 'demote': {
 		if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(تم ازاله الاشراف'
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-        case 'حظر': {
+        case 'block': {
 		if (!isCreator) return replay(`${mess.owner}`)
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(تم حظره من البوت'
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.updateBlockStatus(users, 'block').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
-        case 'فك الحظر': {
+        case 'unblock': {
 		if (!isCreator) return replay(`${mess.owner}`)
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(تم رفع الحظر عنه'
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.updateBlockStatus(users, 'unblock').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
@@ -1443,7 +1443,7 @@ case 'halah': case 'hilih': case 'huluh': case 'heleh': case 'holoh':
                 reply(mess.success)
                 }
                 break
-            case 'منشن جماعي': {
+            case 'tagall': {
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
@@ -1463,7 +1463,7 @@ let teks = `╚»˙·٠•●‘ منشن جماعي ,●•٠·˙«╝
             XeonBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
-	    case 'زخرفه': case 'زخرفه': {
+	    case 'style': case 'styletext': {
 	        if (!isPremium && global.db.data.users[m.sender].limit < 1) return reply(mess.endLimit) //wont response when limit runs out\\
 		db.data.users[m.sender].limit -= 1 // -1 limit
 		let { styletext } = require('./lib/scraper')
@@ -1476,7 +1476,7 @@ let teks = `╚»˙·٠•●‘ منشن جماعي ,●•٠·˙«╝
                 reply(teks)
 	    }
 	    break
-               case 'تصويت': {
+               case 'vote': {
             if (!m.isGroup) return replay(`${mess.group}`)
             if (m.chat in vote) replay(`_There Are Still Votes In This Chat!_\n\n*${prefix}delvote* - To Delete Vote Session`)
             if (!text) return replay(`Enter Reason For Vote, Example: *${prefix + command} Handsome Owner*`)
@@ -1631,14 +1631,14 @@ ${vote[m.chat][2].map((v, i) => `┃╠ ${i + 1}. @${v.split`@`[0]}`).join('\n')
 `
 XeonBotInc.sendTextWithMentions(m.chat, teks_vote, m)
 break
-		case 'حذف جلسه التصويت': case'حذف جلسه التصوير': case 'hapusvote': {
+		case 'deletevote': case'delvote': case 'hapusvote': {
             if (!m.isGroup) return replay(`${mess.group}`)
             if (!(m.chat in vote)) return replay(`_*No Voting In This Group!*_\n\n*${prefix}vote* - To Start Voting`)
             delete vote[m.chat]
             reply('Successfully Deleted The Vote Session In This Group')
 	    }
             break
-               case 'اعدادات الجروب': case 'اعدادات الروم': {
+               case 'group': case 'grup': {
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
@@ -1674,7 +1674,7 @@ break
             }
             }
             break
-            case 'منع الروابط': {
+            case 'antilink': {
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
@@ -1688,14 +1688,14 @@ break
                 reply(`Antilink Inactive !`)
                 } else {
                  let buttons = [
-                        { buttonId: 'منع الروابط تفعيل', buttonText: { displayText: 'تفعيل' }, type: 1 },
-                        { buttonId: 'منع الروابط تعطيل', buttonText: { displayText: 'تعطيل' }, type: 1 }
+                        { buttonId: 'antilink on', buttonText: { displayText: 'On' }, type: 1 },
+                        { buttonId: 'antilink off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
                     await XeonBotInc.sendButtonText(m.chat, buttons, `Antilink Mode`, XeonBotInc.user.name, m)
                 }
              }
              break
-             case 'كتم': {
+             case 'mute': {
                 if (!m.isGroup) return replay(`${mess.group}`)
                 if (!isBotAdmins) return replay(`${mess.botAdmin}`)
                 if (!isAdmins) return replay(`${mess.admin}`)
@@ -1709,14 +1709,14 @@ break
                 reply(`${XeonBotInc.user.name} Has Been Unmuted In This Group!`)
                 } else {
                  let buttons = [
-                        { buttonId: 'تفعيل الكتم', buttonText: { displayText: 'تفعيل' }, type: 1 },
-                        { buttonId: 'تعطيل الكتم', buttonText: { displayText: 'تعطيل' }, type: 1 }
+                        { buttonId: 'mute on', buttonText: { displayText: 'On' }, type: 1 },
+                        { buttonId: 'mute off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
                     await XeonBotInc.sendButtonText(m.chat, buttons, `Mute Bot`, XeonBotInc.user.name, m)
                 }
              }
              break
-            case 'رابط المجموعه': case 'linkgc': case 'gclink': case 'grouplink': {
+            case 'linkgroup': case 'linkgc': case 'gclink': case 'grouplink': {
                 if (!m.isGroup) return replay(`${mess.group}`)
                 let response = await XeonBotInc.groupInviteCode(m.chat)
                 XeonBotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\n${groupMetadata.subject} Group Link`, m, { detectLink: true })
@@ -1734,7 +1734,7 @@ break
                 }
             }
             break
-            case 'حذف الرساله': case 'del': {
+            case 'delete': case 'del': {
                 if (!m.quoted) reply(false)
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) return replay(`The Message Was Not Sent By A Bot!`)
@@ -1859,7 +1859,7 @@ break
                     XeonBotInc.sendText(m.chat, 'Online List:\n\n' + online.map(v => '🌟 @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
-            case 'ستيكر': case 's': case 'stickergif': case 'sgif': {
+            case 'sticker': case 's': case 'stickergif': case 'sgif': {
             if (!quoted) return replay(`Reply Video/Image With Caption ${prefix + command}`)
             reply(mess.wait)
                     if (/image/.test(mime)) {
@@ -1867,7 +1867,7 @@ break
                 let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
                 await fs.unlinkSync(encmedia)
             } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return reply('الحد الاقصي ان يكون الفيديو 10 ثواني!')
+                if ((quoted.msg || quoted).seconds > 11) return reply('Maximum 10 Seconds!')
                 let media = await quoted.download()
                 let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
                 await fs.unlinkSync(encmedia)
@@ -1905,7 +1905,7 @@ break
             reply(db)
         }
         break
-            case 'دمج ايموجي': {
+            case 'emojimix': {
 	        if (!text) return replay(`Example : ${prefix + command} 😅+🤔`)
 		let [emoji1, emoji2] = text.split`+`
 		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
@@ -1915,7 +1915,7 @@ break
 		}
 	    }
 	    break
-            case 'تحويل الي صوره': case 'toimg': {
+            case 'toimage': case 'toimg': {
                 if (!quoted) return reply(`Reply Image`)
                 if (!/webp/.test(mime)) reply(`Reply Sticker With Caption *${prefix + command}*`)
                 reply(mess.wait)
@@ -2022,7 +2022,7 @@ break
 	    })
 	    }
 	    break
-	    case 'بحث يوتيوب': case 'ytsearch': {
+	    case 'yts': case 'ytsearch': {
                 if (!text) return replay(`Example : ${prefix + command} Anime Story Whatsapp`)
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2034,21 +2034,21 @@ break
                 XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
-        case 'جوجل': {
+        case 'google': {
                 if (!text) return reply(`Example : ${prefix + command} cheems shiba inu`)
                 let google = require('google-it')
                 google({'query': text}).then(res => {
-                let teks = `بحث صور جوجل : ${text}\n\n`
+                let teks = `بحث فيديوهات : ${text}\n\n`
                 for (let g of res) {
-                teks += `🌟 *الاسم* : ${g.title}\n`
-                teks += `🌟 *عنوان النص* : ${g.snippet}\n`
+                teks += `🌟 *اسم الفيديو* : ${g.title}\n`
+                teks += `🌟 *الوصف* : ${g.snippet}\n`
                 teks += `🌟 *الرابط* : ${g.link}\n\n────────────────────────\n\n`
                 } 
                 reply(teks)
                 })
                 }
                 break
-        case 'صوره': case 'googleimage': {
+        case 'gimage': case 'googleimage': {
         if (!text) return reply(`Example : ${prefix + command} cheems`)
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
@@ -2070,7 +2070,7 @@ break
         })
         }
         break
-	    case 'اغنيه': case 'song': case 'ytplay': {
+	    case 'play': case 'song': case 'ytplay': {
                 if (!text) return reply(`Example : ${prefix + command} Stay`)
                 let yts = require("yt-search")
                 let search = await yts(text)
@@ -2197,7 +2197,7 @@ case 'webtonsearch': case 'webtoon':
                     var but = [
 				{
 					"urlButton": {
-						"displayText": "شاهد🎥",
+						"displayText": "Watch🎥",
 						"url": `${myweb}`
 						}
 					}
@@ -2270,7 +2270,7 @@ case 'webtonsearch': case 'webtoon':
                 XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female🙎🏻‍♀️` }, { quoted: m })
             }
 	    break
-            case 'قهوه': case 'kopi': {
+            case 'coffee': case 'kopi': {
             let buttons = [
                     {buttonId: `coffe`, buttonText: {displayText: 'الصوره الثانيه ➠'}, type: 1}
                 ]
@@ -2284,7 +2284,7 @@ case 'webtonsearch': case 'webtoon':
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'خلفيه': {
+            case 'wallpaper': {
                 if (!text) return reply(`Enter Query Title`)
 		let { wallpaper } = require('./lib/scraper')
                 anu = await wallpaper(text)
@@ -3060,7 +3060,7 @@ View List Of Messages With ${prefix}listmsg`)
                 XeonBotInc.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await XeonBotInc.getName(m.sender)} Welcome To Anonymous Chat\n\nClick The Button Below To Find A Partner\`\`\``, XeonBotInc.user.name, m)
             }
 			break
-            case 'keluar': case 'اخرج يابوت': {
+            case 'keluar': case 'leave': {
                 if (m.isGroup) return reply('Features Cannot Be Used For Groups!')
                 this.anonymous = this.anonymous ? this.anonymous : {}
                 let room = Object.values(this.anonymous).find(room => room.check(m.sender))
@@ -3239,7 +3239,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             }
             break
-            case 'owner': case 'صانع البوت': {
+            case 'owner': case 'creator': {
                 XeonBotInc.sendContact(m.chat, global.owner, m)
             }
             break
@@ -3270,14 +3270,14 @@ typemenu = 'catalog'
 reply("Success Changing Menu To "+q)
 }
 break
-                    case 'ابلاغ مشكله': case 'report': {
+                    case 'bug': case 'report': {
                     	if(!text) return reply(`Enter The Bug\n\nExample: ${command} Menu Error`)
                     	XeonBotInc.sendMessage(`201288455338@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
                     }
                     break
-                    case 'tes': case 'test': case 'alive': case 'بوت': case 'robot': case 'cheems': case 'يابوت':{
+                    case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'cheems': case 'doge':{
                            	timestampe = speed();
 latensie = speed() - timestampe
  anu = ` `
@@ -3337,7 +3337,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
 break
-            case 'list': case 'الاوامر': case 'help': case '?': {
+            case 'list': case 'menu': case 'help': case '?': {
             	timestampe = speed();
 latensie = speed() - timestampe
                 anu = ``
@@ -3525,7 +3525,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 reply(`GitHub : https://www.instagram.com/1y._.o2\n Dont Forget To Give Star\n\nYouTube : ${myweb}\nDont Forget To Watch Tutorial`)
             }
             break
-case 'الاوامر كامله': {
+case 'allmenu': {
   	anu = `
 ┏━「 *${botname}* 」━━⭓ 
 ┃╔═══════✪「 اوامر خاصه عن البوت 」
@@ -3533,42 +3533,42 @@ case 'الاوامر كامله': {
 ┃╠ ${prefix}script
 ┃╠ ${prefix}speedtest
 ┃╠ ${prefix}ping
-┃╠ ${prefix}صاحب البوت
-┃╠ ${prefix}الاوامر
-┃╠ ${prefix}حذف الرساله
+┃╠ ${prefix}owner
+┃╠ ${prefix}menu
+┃╠ ${prefix}delete
 ┃╠ ${prefix}chatinfo
 ┃╠ ${prefix}quoted
 ┃╠ ${prefix}listpc
 ┃╠ ${prefix}listgc
 ┃╠ ${prefix}donate
-┃╠ ${prefix}ابلاغ عن مشكله البوت [bug]
+┃╠ ${prefix}report [bug]
 ┃╠═══════✪「 اوامر صاحب البوت 」	
 ┃╠ ${prefix}chat [option]
 ┃╠ ${prefix}join [link]
-┃╠ ${prefix}اخراج البوت
-┃╠ ${prefix}حظر [user]
-┃╠ ${prefix}رفع الحظر [user]
+┃╠ ${prefix}leave
+┃╠ ${prefix}block [user]
+┃╠ ${prefix}unblock [user]
 ┃╠ ${prefix}bcgroup [text]
 ┃╠ ${prefix}bcall [text]
 ┃╠ ${prefix}setppbot [image]
 ┃╠ ${prefix}setexif
 ┃╠═══════✪「 اوامر الجروب 」	        
-┃╠${prefix}رابط المجموعه
+┃╠${prefix}grouplink
 ┃╠${prefix}ephemeral [option]
 ┃╠${prefix}setgcpp [image]
 ┃╠${prefix}setname [text]
 ┃╠${prefix}setdesc [text]
-┃╠${prefix}اعدادات الجروب [text]
+┃╠${prefix}group [text]
 ┃╠${prefix}editinfo [option]
-┃╠${prefix}اضافه [user]
-┃╠${prefix}طرد [ريبلاي/منشن]
+┃╠${prefix}add [user]
+┃╠${prefix}kick [reply/tag]
 ┃╠${prefix}hidetag [text]
-┃╠${prefix}منشن جماعي [text]
-┃╠${prefix}منع الروابط [تغعيل/تعطيل]
-┃╠${prefix}كتم [تفعيل/تعطيل]
-┃╠${prefix}رفع مشرف [ريبلاي/منشن]
-┃╠${prefix}ازاله الاشراف [ريبلاي/منشن]
-┃╠${prefix}تصويت
+┃╠${prefix}tagall [text]
+┃╠${prefix}antilink [on/off]
+┃╠${prefix}mute [on/off]
+┃╠${prefix}promote [reply/tag]
+┃╠${prefix}demote [reply/tag]
+┃╠${prefix}vote
 ┃╠${prefix}devote
 ┃╠${prefix}upvote
 ┃╠${prefix}checkvote
@@ -3592,15 +3592,15 @@ case 'الاوامر كامله': {
 ┃╠${prefix}joox [query]
 ┃╠${prefix}soundcloud [url]
 ┃╠═══════✪「 اوامر السيرش 」	
-┃╠${prefix}اغنيه [اكتب الاسم]
+┃╠${prefix}play [query]
 ┃╠${prefix}song [query]
-┃╠${prefix}بحث يوتيوب [اكتب الاسم]
-┃╠${prefix}بحث جوجل [اكتب الاسم]
-┃╠${prefix}صوره [اكتب الاسم]
+┃╠${prefix}yts [query]
+┃╠${prefix}google [query]
+┃╠${prefix}gimage [query]
 ┃╠${prefix}pinterest [query]
-┃╠${prefix}خلفيه [اكتب الاسم]
+┃╠${prefix}wallpaper [query]
 ┃╠${prefix}wikimedia [query]
-┃╠${prefix}بحث يوتيوب [اكتب الاسم]
+┃╠${prefix}ytsearch [query]
 ┃╠${prefix}ringtone [query]
 ┃╠${prefix}webtoon [query]
 ┃╠═══════✪「 اوامر عشوائيه 」
@@ -3682,9 +3682,9 @@ case 'الاوامر كامله': {
 ┃╠ ${prefix}math [mode]
 ┃╠ ${prefix}suitpvp [tag]
 ┃╠═══════✪「 اوامر الملصقات 」
-┃╠ ${prefix}تحويل صوره [ريبلاي للملصق]
-┃╠ ${prefix}ستيكر [ريبلاي للصوره]
-┃╠ ${prefix}دمج ايموجي [ايموجي+ايموجي]
+┃╠ ${prefix}toimage [reply stick]
+┃╠ ${prefix}sticker [reply img|gif]
+┃╠ ${prefix}emojimix [moji+moji]
 ┃╠ ${prefix}tovideo [reply img]
 ┃╠ ${prefix}togif [reply stick]
 ┃╠ ${prefix}tourl [reply img]
@@ -3693,7 +3693,7 @@ case 'الاوامر كامله': {
 ┃╠ ${prefix}toaudio [reply vid]
 ┃╠ ${prefix}ebinary [reply txt]
 ┃╠ ${prefix}dbinary [reply txt]
-┃╠ ${prefix}زخرفه [اكتب الاسم]
+┃╠ ${prefix}styletext [text]
 ┃╠══════✪「 اوامر الداتا الخاصه البوت 」
 ┃╠ ${prefix}setcmd
 ┃╠ ${prefix}listcmd
